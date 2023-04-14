@@ -358,4 +358,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PLayerSpeed: 5
-  m_PlayerRotationSpeed: 30
+  m_PlayerRotationSpeed: 60
