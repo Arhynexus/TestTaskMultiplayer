@@ -1,28 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class MovementController : MonoBehaviour
+namespace TestTaskMultiPlayer
 {
-    [SerializeField] private float m_PLayerSpeed;
-    [SerializeField] private float m_PlayerRotationSpeed;
 
-    private PhotonView m_PlayerView;
-    private void Start()
-    {
-        m_PlayerView = GetComponent<PhotonView>();
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class MovementController : MonoBehaviour
     {
-        if (m_PlayerView.IsMine)
+        [SerializeField] private float m_PlayerSpeed;
+        [SerializeField] private float m_PlayerRotationSpeed;
+        private Virtual_Joystick m_PlayerJoystick;
+
+        public PhotonView m_PlayerView { get; private set; }
+        private void Start()
         {
-            float moveInputhorizontal = Input.GetAxisRaw("Horizontal");
-            float moveInputvertictal = Input.GetAxisRaw("Vertical");
-            transform.Rotate(-Vector3.forward * moveInputhorizontal * m_PlayerRotationSpeed * Time.deltaTime);
-            transform.Translate(Vector2.up * moveInputvertictal * m_PLayerSpeed * Time.deltaTime);
+            m_PlayerJoystick = FindObjectOfType<Virtual_Joystick>();
+            m_PlayerView = GetComponent<PhotonView>();
+        }
+
+        private void Update()
+        {
+            float moveInputhorizontal = m_PlayerJoystick.value.x;
+            float moveInputvertictal = m_PlayerJoystick.value.y;
+            if (m_PlayerView.IsMine)
+            {
+                transform.Rotate(Vector3.forward * moveInputhorizontal * m_PlayerRotationSpeed * Time.deltaTime);
+                transform.Translate(-Vector2.up * moveInputvertictal * m_PlayerSpeed * Time.deltaTime);
+            }
         }
     }
 }

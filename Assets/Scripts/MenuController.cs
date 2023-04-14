@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-
+using Unity.VisualScripting;
 
 public class MenuController : MonoBehaviourPunCallbacks
 {
@@ -33,5 +33,10 @@ public class MenuController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Game");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

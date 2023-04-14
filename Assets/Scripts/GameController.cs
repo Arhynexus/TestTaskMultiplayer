@@ -1,42 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviourPunCallbacks
+namespace TestTaskMultiPlayer
 {
-    
-    
-    private void Start()
+    public class GameController : MonoBehaviourPunCallbacks
     {
-        
-    }
+        private Tank m_Player;
 
-    private void Update()
-    {
-        
-    }
 
-    public void Leave()
-    {
-        PhotonNetwork.LeaveRoom();
-    }
+        private void Start()
+        {
+            m_Player = GamePlayer.Instance.Tank;
+        }
 
-    public override void OnLeftRoom()
-    {
-        SceneManager.LoadScene(0);
-    }
+        private void Update()
+        {
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        print("Player intered room" + newPlayer.NickName);
-    }
+        }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        print("Player has left room" + otherPlayer.NickName);
-    }
+        public void Leave()
+        {
+            PhotonNetwork.LeaveRoom();
+        }
 
+        public void DestroyPlayer()
+        {
+            Destroy(m_Player.gameObject);
+        }
+
+        public override void OnLeftRoom()
+        {
+            DestroyPlayer();
+            SceneManager.LoadScene(0);
+        }
+
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            print("Player intered room" + newPlayer.NickName);
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            print("Player has left room" + otherPlayer.NickName);
+        }
+    }
 }

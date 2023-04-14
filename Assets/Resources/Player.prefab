@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8888355827817610429}
   - component: {fileID: 3466028003049913096}
+  - component: {fileID: 2143431674768625725}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -169,6 +170,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2143431674768625725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741435627119357276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbef80149f3aab64b84575ff449c341a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Mode: 0
+  m_TurretProperties: {fileID: 11400000, guid: 3490fe41405f5cb469b1f64291f31196, type: 2}
+  m_AudioSource: {fileID: 0}
 --- !u!1 &1558433893973875639
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9045764075919169150}
   - component: {fileID: 3696455975405020834}
+  - component: {fileID: 6947575203138360369}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -253,6 +270,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6947575203138360369
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558433893973875639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1751550245249921152
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +308,10 @@ GameObject:
   - component: {fileID: 1751550245249921155}
   - component: {fileID: 5320125899734721461}
   - component: {fileID: -8433841468289331959}
+  - component: {fileID: 4511354466108163962}
+  - component: {fileID: 2792217405262830054}
+  - component: {fileID: -8888823754311728611}
+  - component: {fileID: 8396251678631781415}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -357,5 +404,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5173cf2edddc10b4695292768297d106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PLayerSpeed: 5
+  m_PlayerSpeed: 5
   m_PlayerRotationSpeed: 60
+--- !u!114 &4511354466108163962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751550245249921152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df33f88b53e1fdf42a08e69d9d1baca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealthtpoints: 5
+--- !u!114 &2792217405262830054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751550245249921152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642c80b56dcf7844997b5cbdcd53eebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8888823754311728611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751550245249921152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355c9c6076c32940adcafc9157ded25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &8396251678631781415
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751550245249921152}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
