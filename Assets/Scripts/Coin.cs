@@ -13,20 +13,26 @@ namespace TestTaskMultiPlayer
         {
             m_CoinView = GetComponent<PhotonView>();
         }
+
+        [PunRPC]
         private void OnCollisionEnter2D(Collision2D collision)
         {
             Bag bag = collision.transform.root.GetComponent<Bag>();
             if (bag)
             {
                 bag.m_View.RPC("AddMoney", RpcTarget.AllBuffered, m_Amount);
-                m_CoinView.RPC("DestroyCoin", RpcTarget.MasterClient);
             }
+            m_CoinView.RPC("DestroyCoin", RpcTarget.AllBuffered);
         }
 
         [PunRPC]
         private void DestroyCoin()
         {
-            PhotonNetwork.Destroy(gameObject);
+            if (m_CoinView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

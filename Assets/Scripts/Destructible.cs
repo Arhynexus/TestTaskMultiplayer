@@ -26,14 +26,17 @@ namespace TestTaskMultiPlayer
             if (CurrentHealthPoints <= 0)
             {
                 CurrentHealthPoints = 0;
-                m_DestructibleView.RPC("Death", RpcTarget.MasterClient);
+                m_DestructibleView.RPC("Death", RpcTarget.AllBuffered);
             }
             OnHealthChanged();
         }
         [PunRPC]
         public void Death()
         {
-            PhotonNetwork.Destroy(gameObject);
+            if(m_DestructibleView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 }

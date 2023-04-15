@@ -11,12 +11,14 @@ namespace TestTaskMultiPlayer
         [SerializeField] private Tank m_PlayerPrefab;
         [SerializeField] private float StartSpawnPositionMinX, StartSpawnPositionMinY, StartSpawnPositionMaxX, StartSpawnPositionMaxY;
         [SerializeField] private PointerClickHold m_WeaponButton;
+        [SerializeField] private UpdateMoneyUI m_MoneyUI;
         private List<Player> m_Players; 
 
         private void Start()
         {
             Vector2 startPosition = new Vector2(Random.Range(StartSpawnPositionMinX, StartSpawnPositionMaxX), Random.Range(StartSpawnPositionMinY, StartSpawnPositionMaxY));
             var m_PlayerTank = PhotonNetwork.Instantiate(m_PlayerPrefab.name, startPosition, Quaternion.identity).GetComponent<Tank>();
+            m_MoneyUI.SetBag(m_PlayerTank.GetComponent<Bag>());
         }
 
         public void Leave()

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace TestTaskMultiPlayer
@@ -16,7 +14,7 @@ namespace TestTaskMultiPlayer
             m_PlayerDestructible.OnHealthChanged += UpdateHealthBar;
         }
 
-        [PunRPC] 
+        [PunRPC]
         public void UpdateHealthBar()
         {
             float maxHealth = m_PlayerDestructible.MaxHealthPoints;
@@ -27,7 +25,7 @@ namespace TestTaskMultiPlayer
         // Update is called once per frame
         void Update()
         {
-        
+
         }
     }
 }
