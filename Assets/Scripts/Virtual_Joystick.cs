@@ -22,7 +22,6 @@ namespace TestTaskMultiPlayer
 
             position.x = -(position.x - m_Joystick.rectTransform.sizeDelta.x);
             position.y = -(position.y - m_Joystick.rectTransform.sizeDelta.y);
-            print(position);
             position.x = position.x * 2 - 1;
             position.y = position.y * 2 - 1;
 

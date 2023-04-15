@@ -40,6 +40,14 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - Death
+  - OnProjectileLifeEnd
+  - AddCharacter
+  - RPC_AddCharacter
+  - Move
+  - ApplyDamage
+  - AddMoney
+  - DestroyCoin
+  - UpdateHealthBar
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

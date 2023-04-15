@@ -12,7 +12,7 @@ namespace TestTaskMultiPlayer
         [SerializeField] private ImpactEffect m_ImpactEffectPrefab_01;
         [SerializeField] private ImpactEffect m_ImpactEffectPrefab_02;
 
-        private PhotonView m_BulletView;
+        public PhotonView m_BulletView;
 
         protected virtual void Start()
         {
@@ -23,16 +23,21 @@ namespace TestTaskMultiPlayer
         protected virtual void Update()
         {
             lifeTime -= Time.deltaTime;
-            if (lifeTime < 0)
+
+            if (lifeTime < 0 && m_BulletView.IsMine)
             {
                 PhotonNetwork.Destroy(gameObject);
             }
+            Move();
+        }
 
-
+        [PunRPC]
+        private void Move()
+        {
             float stepLength = Time.deltaTime * m_Velocity;
             Vector2 step = transform.up * stepLength;
 
-            if(m_BulletView.IsMine)
+            if (m_BulletView.IsMine)
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLength);
 
@@ -42,17 +47,17 @@ namespace TestTaskMultiPlayer
 
                     if (dest != null && dest != m_Parent)
                     {
-                        dest.ApplyDamage(m_damage);
+                        dest.m_DestructibleView.RPC("ApplyDamage", RpcTarget.AllBuffered, m_damage);
                         OnProjectileLifeEnd(hit.collider, hit.point);
                     }
                 }
                 transform.position += new Vector3(step.x, step.y, 0);
             }
-
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D collision) { }
 
+        [PunRPC]
         protected virtual void OnProjectileLifeEnd(Collider2D collider, Vector2 point)
         {
             if (m_ImpactEffectPrefab_01 != null)

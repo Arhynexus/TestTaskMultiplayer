@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TestTaskMultiPlayer
@@ -18,9 +16,12 @@ namespace TestTaskMultiPlayer
 
         private void Update()
         {
-            m_PlayerVector = m_Player.position;
-            m_PlayerVector.z = -m_ZOffset;
-            transform.position = Vector3.Lerp(transform.position, m_PlayerVector, m_FollowSpeed * Time.deltaTime);
+            if (m_Player)
+            {
+                m_PlayerVector = m_Player.position;
+                m_PlayerVector.z = -m_ZOffset;
+                transform.position = Vector3.Lerp(transform.position, m_PlayerVector, m_FollowSpeed * Time.deltaTime);
+            }
         }
     }
 }

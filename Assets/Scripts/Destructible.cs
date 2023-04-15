@@ -4,33 +4,36 @@ using UnityEngine;
 
 namespace TestTaskMultiPlayer
 {
-    public class Destructible:MonoBehaviour
+    public class Destructible : MonoBehaviour
     {
         [SerializeField] private int m_MaxHealthtpoints;
         public int MaxHealthPoints => m_MaxHealthtpoints;
-        private int m_CurrentHealthPoints;
+        public int CurrentHealthPoints { get; private set; }
 
-        PhotonView m_DestructibleView;
+        public PhotonView m_DestructibleView;
+
+        public event Action OnHealthChanged;
 
         private void Start()
         {
             m_DestructibleView = GetComponent<PhotonView>();
-            m_CurrentHealthPoints = m_MaxHealthtpoints;
+            CurrentHealthPoints = m_MaxHealthtpoints;
         }
-
+        [PunRPC]
         public void ApplyDamage(int m_damage)
         {
-            m_CurrentHealthPoints -= m_damage;
-            if (m_CurrentHealthPoints <= 0)
+            CurrentHealthPoints -= m_damage;
+            if (CurrentHealthPoints <= 0)
             {
-                m_CurrentHealthPoints = 0;
-                Death();
+                CurrentHealthPoints = 0;
+                m_DestructibleView.RPC("Death", RpcTarget.MasterClient);
             }
+            OnHealthChanged();
         }
-        private void Death()
+        [PunRPC]
+        public void Death()
         {
-           if(m_DestructibleView.Owner.IsLocal)
-            PhotonNetwork.Disconnect();
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

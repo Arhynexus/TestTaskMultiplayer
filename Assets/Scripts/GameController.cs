@@ -1,6 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,17 +8,15 @@ namespace TestTaskMultiPlayer
 {
     public class GameController : MonoBehaviourPunCallbacks
     {
-        private Tank m_Player;
-
+        [SerializeField] private Tank m_PlayerPrefab;
+        [SerializeField] private float StartSpawnPositionMinX, StartSpawnPositionMinY, StartSpawnPositionMaxX, StartSpawnPositionMaxY;
+        [SerializeField] private PointerClickHold m_WeaponButton;
+        private List<Player> m_Players; 
 
         private void Start()
         {
-            m_Player = GamePlayer.Instance.Tank;
-        }
-
-        private void Update()
-        {
-
+            Vector2 startPosition = new Vector2(Random.Range(StartSpawnPositionMinX, StartSpawnPositionMaxX), Random.Range(StartSpawnPositionMinY, StartSpawnPositionMaxY));
+            var m_PlayerTank = PhotonNetwork.Instantiate(m_PlayerPrefab.name, startPosition, Quaternion.identity).GetComponent<Tank>();
         }
 
         public void Leave()
@@ -26,25 +24,25 @@ namespace TestTaskMultiPlayer
             PhotonNetwork.LeaveRoom();
         }
 
-        public void DestroyPlayer()
-        {
-            Destroy(m_Player.gameObject);
-        }
-
         public override void OnLeftRoom()
         {
-            DestroyPlayer();
             SceneManager.LoadScene(0);
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
             print("Player intered room" + newPlayer.NickName);
+            if (m_Players == null)
+            {
+                m_Players = new List<Player>();
+            }
+            m_Players.Add(newPlayer);
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
             print("Player has left room" + otherPlayer.NickName);
         }
+
     }
 }

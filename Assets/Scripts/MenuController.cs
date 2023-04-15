@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-using Unity.VisualScripting;
 
 public class MenuController : MonoBehaviourPunCallbacks
 {
