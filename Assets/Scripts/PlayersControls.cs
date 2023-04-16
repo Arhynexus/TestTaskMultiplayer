@@ -11,7 +11,6 @@ namespace TestTaskMultiPlayer
         private PointerClickHold m_WeaponButton;
         private PhotonView m_View;
 
-
         private void Start()
         {
             m_WeaponButton = FindObjectOfType<PointerClickHold>();

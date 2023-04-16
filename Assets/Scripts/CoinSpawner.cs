@@ -28,7 +28,6 @@ namespace TestTaskMultiPlayer
             Vector2 startPosition = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
             var coin = PhotonNetwork.Instantiate(m_CoinPrefab.name, startPosition, Quaternion.identity).GetComponent<Coin>();
             m_AmountSpawned.Add(coin);
-            print("Added" + coin.name);
         }
 
         private void Update()

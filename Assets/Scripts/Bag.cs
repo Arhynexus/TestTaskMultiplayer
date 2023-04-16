@@ -10,11 +10,9 @@ namespace TestTaskMultiPlayer
         public int Coins { get; private set; }
         public PhotonView m_View;
 
-        private UpdateMoneyUI m_moneyUI;
 
         private void Start()
         {
-            m_moneyUI = FindObjectOfType<UpdateMoneyUI>();
             m_View = GetComponent<PhotonView>();
         }
 
@@ -23,7 +21,7 @@ namespace TestTaskMultiPlayer
         {
             Money += money;
             Coins++;
-            m_moneyUI.OnCoinCollected();
+            UpdateMoneyUI.OnCoinCollected();
         }
     }
 }

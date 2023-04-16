@@ -14,11 +14,12 @@ namespace TestTaskMultiPlayer
 
         public event Action OnHealthChanged;
 
-        private void Start()
+        protected virtual void Start()
         {
             m_DestructibleView = GetComponent<PhotonView>();
             CurrentHealthPoints = m_MaxHealthtpoints;
         }
+
         [PunRPC]
         public void ApplyDamage(int m_damage)
         {
@@ -35,6 +36,7 @@ namespace TestTaskMultiPlayer
         {
             if(m_DestructibleView.IsMine)
             {
+                ResultController.OnlevelEnd();
                 PhotonNetwork.Destroy(gameObject);
             }
         }

@@ -505,7 +505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 00abc6a2f2f2fc64c89a2a9200865baf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b18e44f980bdd9418b9ef7dce0163a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1385,6 +1385,22 @@ PrefabInstance:
     - target: {fileID: 8108727505070893189, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
       propertyPath: m_Name
       value: TitleText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893190, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893190, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893191, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893191, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0.59607846
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c7743d914fd044486156ef29c9a448, type: 3}

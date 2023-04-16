@@ -12,7 +12,7 @@ namespace TestTaskMultiPlayer
         [SerializeField] private CoinSpawner m_Spawner;
         [SerializeField] private Image m_CoinBarImage;
 
-        public Action OnCoinCollected;
+        public static Action OnCoinCollected;
 
         private Bag m_PlayerBag;
 

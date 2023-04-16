@@ -50,6 +50,11 @@ MonoBehaviour:
   - UpdateHealthBar
   - UpdateMoney
   - OnCollisionEnter2D
+  - AddTankToList
+  - Start
+  - SetNickName
+  - ShowNickNames
+  - ShowResults
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

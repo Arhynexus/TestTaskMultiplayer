@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 00abc6a2f2f2fc64c89a2a9200865baf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b18e44f980bdd9418b9ef7dce0163a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -536,10 +536,10 @@ RectTransform:
   m_Father: {fileID: 955564743}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -695, y: -460}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchorMin: {x: 0.007479167, y: 0.028}
+  m_AnchorMax: {x: 0.2687292, y: 0.12029632}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631122890
 MonoBehaviour:
@@ -677,6 +677,30 @@ PrefabInstance:
     - target: {fileID: 8108727505070893189, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
       propertyPath: m_Name
       value: TitleText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893190, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1830188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893190, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_Color.g
+      value: 0.53694266
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893190, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893191, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.034846123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893191, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108727505070893191, guid: c5c7743d914fd044486156ef29c9a448, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0.5943396
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c7743d914fd044486156ef29c9a448, type: 3}

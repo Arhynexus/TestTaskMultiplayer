@@ -1,10 +1,9 @@
 using UnityEngine;
-using Photon.Pun;
 
 namespace TestTaskMultiPlayer
 {
 
-    public class CameraControler : MonoBehaviourPunCallbacks
+    public class CameraControler : MonoBehaviour
     {
         private MovementController m_MovementController;
         private void Start()
@@ -14,11 +13,6 @@ namespace TestTaskMultiPlayer
             {
                 Camera.main.GetComponent<CameraFollow>().SetPlayer(gameObject.transform);
             }
-        }
-
-        private void Update()
-        {
-
         }
     }
 }
